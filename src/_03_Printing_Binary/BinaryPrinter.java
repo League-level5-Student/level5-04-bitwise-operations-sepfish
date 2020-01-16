@@ -9,7 +9,9 @@ public class BinaryPrinter {
 	
 	boolean isBigger = false;
 	int i = 0;
+	int ans = 0;
 	
+	/*
 	int isBigger(int a, int b) {
 		while (!isBigger) {
 			byte b2 = (byte) Math.pow(2, i);
@@ -22,14 +24,19 @@ public class BinaryPrinter {
 		return i;
 	}
 	
+	*/
+	
 	public void printByteBinary(byte b) {
 		//check for powers of 2
 		while (!isBigger) {
 			byte b2 = (byte) Math.pow(2, i);
 			if (b - b2 == 0) {
 				System.out.println((int) Math.pow(10, i));
+				ans += (int) Math.pow(10, i);
 				isBigger = true;
 			} else if (b - b2 < 0) {
+				ans += (int) Math.pow(10, i);
+				b = b - b2;
 				isBigger = true;
 			} else {
 				i++;
