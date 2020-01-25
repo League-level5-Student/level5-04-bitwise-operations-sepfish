@@ -36,9 +36,46 @@ public class Base64Decoder {
 	
 	//1. Complete this method so that it returns the the element in
 	//   the base64Chars array that corresponds to the passed in char.
-	public static byte convertBase64Char(char c){
-		return 0;
+	public static byte convertBase64Char(char c){ //probably need separate cases for uppercase, lowercase, and punctuation
+		if (Character.isUpperCase(c)) {
+			int a = c;
+			int aBin = Integer.parseInt(Integer.toBinaryString(a));
+			System.out.println(" = " + aBin);
+			int hmm = a - 65;
+			int hmmBin = Integer.parseInt(Integer.toBinaryString(hmm));
+			System.out.println(hmmBin);
+			return (byte) hmm;
+		} else if (Character.isLowerCase(c)){
+			return 0;
+		} else {
+			return 0;
+		}
 	}
+	
+	/* Decoding code
+	 * 	int[] binary = {0, 0, 0, 0, 0, 0, 0, 0};
+		String a = "";
+		int ans = 0;
+		String b = Integer.toBinaryString((int) c);
+		System.out.println(c);
+		System.out.println(b);
+		for (int j = (binary.length - b.length()); j < binary.length; j++) {
+			binary[j] = Integer.parseInt(String.valueOf(b.charAt(j-1)));
+		}
+		for (int i: binary) {
+			System.out.print(i);
+		}
+		System.out.println();
+		for (int k = 0; k < 6; k++) {
+			String s = String.valueOf(binary[k]);
+			a = a.concat(s);
+			if (s.equals("1")) {
+				ans += (int) Math.pow(2, 6-k-1);
+			}
+		}
+		System.out.println(a);
+		System.out.println(ans);
+	 */
 	
 	//2. Complete this method so that it will take in a string that is 4 
 	//   characters long and return an array of 3 bytes (24 bits). The byte 
